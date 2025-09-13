@@ -1,0 +1,620 @@
+/*公共*/
+
+.main {
+  padding: 0 5% 0 5%;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer {
+  background-color: #666;
+  margin: 0;
+}
+.item {
+  flex: 1;
+}
+
+.body {
+  margin: 20px 0 10px 10px;
+  background-color: rgba(240, 240, 240);
+}
+
+.a:link {
+  text-decoration: none;
+  color: black;
+}
+
+.a:hover {
+  background-color: black;
+  color: white;
+}
+
+.ul {
+  position: fixed;
+  left: 60%;
+  top: 10px;
+  margin: 10px;
+  width: 160px;
+  background-color: white;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.4);
+  overflow: hidden;
+}
+.ul2{
+  position: fixed;
+  left: auto;
+  right:0;
+  top: 10px;
+  margin: 10px;
+  width: 160px;
+  background-color: white;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.4);
+  overflow: hidden;
+}
+
+.ul-box {
+  display: block;
+  text-align: center;
+  border: 1px solid rgba(160, 160, 160, 0.4);
+  border-bottom: 0;
+  padding: 5px;
+  width: 100%;
+}
+
+.lvmen::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1.5em;
+  background-image: url(图片/绿门.png);
+  background-size: 100% 100%;
+}
+
+.page {
+  width: 60%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.p {
+  text-indent: 2em;
+}
+
+.paragraphs {
+  padding-left: 2em;
+}
+/*广告*/
+.广告 {
+  position: fixed;
+  right: 10px;
+  height: 600px;
+  width: 160px;
+  cursor: pointer;
+}
+
+.广告.first {
+  top: 10px;
+}
+
+.广告:hover {
+  animation: guanggao-hover 1s linear infinite;
+}
+
+@keyframes guanggao-hover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes guangzi {
+  0% {
+    transform: scale(1);
+    color: red;
+  }
+  50% {
+    transform: scale(1.3);
+    color: green;
+  }
+  100% {
+    transform: scale(1);
+    color: blue;
+  }
+}
+
+.弹窗 {
+  width: 480px;
+  height: 360px;
+  border-radius: 10px;
+  position: fixed;
+  top: 30%;
+  left: 25%;
+  display: none;
+}
+
+.弹窗-first {
+  background-image: url(图片/文字.png);
+}
+
+.弹窗-first p.one {
+  font-size: 30px;
+  display: block;
+  position: relative;
+  bottom: 110px;
+  left: 240px;
+}
+
+.弹窗-first p.two {
+  writing-mode: vertical-lr;
+  display: block;
+  font-size: 20px;
+  position: relative;
+  left: 400px;
+  bottom: 105px;
+}
+
+.弹窗-first p.three {
+  display: block;
+  font-size: 19px;
+  position: relative;
+  left: 10px;
+  bottom: 452px;
+}
+
+.弹窗-first a {
+  font-size: 15px;
+  position: relative;
+  left: 300px;
+  bottom: 135px;
+}
+
+.弹窗-first img.大海 {
+  width: 280px;
+  height: 200px;
+  position: relative;
+  top: 160px;
+  border-radius: 0 0 0 10px;
+}
+
+.弹窗-first img.石头 {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  bottom: 70px;
+  left: 50px;
+}
+
+.关闭 {
+  position:absolute;
+  left:450px;
+  color:rgba(240, 240, 240);
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* 主页 */
+
+.logo {
+  height: 60px;
+  width: 60px;
+}
+
+.logo:hover {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.box {
+  width: 30%;
+  border-radius: 10px;
+  margin: 0;
+  background-color: white;
+  color: black;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.box-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px 10px 0 0;
+}
+
+.box-div {
+  margin: 5px;
+}
+
+.box-under {
+  margin: 0;
+  padding: 0 18px 15px 10px;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.4);
+}
+
+.card-first {
+  margin: 0 1.66% 0 1.66%;
+}
+
+.WhoLeft {
+  width: 50%;
+}
+
+.WhoRight {
+  width: 50%;
+}
+
+.zhongdian {
+  color: red;
+  font-size: larger;
+}
+
+.padded-link {
+  padding-left: 100px;
+  display: inline-block;
+}
+
+.image {
+  max-width: 100%;
+  height: 220px;
+}
+
+.margin {
+  margin: 0;
+}
+
+.tubiao-image {
+  height: 16px;
+  width: 16px;
+}
+
+.tubiao-container {
+  margin-left: 33%;
+  margin-right: 33%;
+  height: 21px;
+}
+
+.tubiao-left {
+  position: absolute;
+  left: 41%;
+}
+
+.tubiao-middle1 {
+  position: absolute;
+  left: 47%;
+}
+
+.tubiao-middle2 {
+  position: absolute;
+  left: 53%;
+}
+
+.tubiao-right {
+  position: absolute;
+  left: 59%;
+}
+.bilibili:hover::after {
+  content: "我的B站账号";
+  background-color: gray;
+  font-size: 5px;
+  color: white;
+  display: block;
+  position: relative;
+  bottom: 45px;
+  right: 40%;
+}
+
+.email:hover::after {
+  content: "我的邮箱";
+  background-color: gray;
+  font-size: 5px;
+  color: white;
+  display: block;
+  position: relative;
+  bottom: 45px;
+  right: 35%;
+}
+
+.github:hover::after {
+  content: "我的Github账号";
+  background-color: gray;
+  font-size: 5px;
+  color: white;
+  display: block;
+  position: relative;
+  bottom: 45px;
+  right: 40%;
+}
+
+.bank:hover::after {
+  content: "我的银行账户和密码";
+  background-color: gray;
+  font-size: 5px;
+  color: white;
+  display: block;
+  position: relative;
+  bottom: 45px;
+  right: 40%;
+}
+/*成就*/
+.成就container{
+  width:50%;
+  border:1px #666 solid; 
+  padding:20px;
+}
+
+.成就{
+  width:64px;
+  height:64px;
+  background-image:url(图片/未解锁.png);
+  margin:30px;
+}
+
+.成就 p{
+  position:relative;
+  top:45px;
+  width:100px;
+  right:20px;
+  text-align: center;
+}
+
+.成就box{
+  background-color:black;
+  height:110px;
+  width:320px;
+  position:fixed;
+  right:20px;
+  bottom:-110px;
+}
+
+@keyframes achievementup {
+  0%{bottom:-100px}
+  10%{bottom:0}
+  90%{bottom:0}
+  100%{bottom:-100px}
+}
+
+.成就box img{
+  position:absolute;
+  height:110px;
+  width:110px;
+}
+
+.成就box h3{
+  color:white;
+  margin:0;
+  position:absolute;
+  top:5px; 
+  left:120px;
+}
+
+.成就box p{
+  position:absolute;
+  top:25px;
+  left:120px;
+  color:rgba(160, 160, 160);
+  font-size:15px;
+}
+/*键盘敲得*/
+
+.passage {
+  border-bottom: 1px solid rgba(160, 160, 160);
+  background-size: cover;
+  background-position: center;
+}
+
+.LaJiSong-video {
+  width: 50%;
+  height: 200px;
+  margin: 0 25% 0 25%;
+}
+
+/*超有用*/
+.solid {
+  padding: 3px;
+  margin: 5px;
+  border: 1px solid black;
+}
+
+.介绍 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+.回合 {
+  position: absolute;
+  left: 300px;
+  height: 21px;
+}
+
+.进度条 {
+  width: 200px;
+  height: 42px;
+  position: absolute;
+  left: 85px;
+  background-image: url(图片/0.png);
+}
+
+@keyframes jindutiao {
+  0% {
+    background-image: url(图片/0.png);
+  }
+  18% {
+    background-image: url(图片/1.png);
+  }
+  36% {
+    background-image: url(图片/2.png);
+  }
+  54% {
+    background-image: url(图片/3.png);
+  }
+  72% {
+    background-image: url(图片/4.png);
+  }
+  90% {
+    background-image: url(图片/5.png);
+  }
+  100% {
+    background-image: url(图片/6.png);
+  }
+}
+
+.计时器 {
+  position: relative;
+  left: 20px;
+  height: 21px;
+}
+
+.vs {
+  font-size: 50px;
+  color: red;
+  margin-top: 80px;
+}
+
+.show {
+  border: 1px solid black;
+  height: 40px;
+  width: 40px;
+  margin-top: 100px;
+  background-size: contain;
+  background-position: center;
+}
+
+.player1 {
+  position: relative;
+  font-size: 15px;
+  right: 5px;
+  bottom: 1px;
+  text-align: center;
+  margin-top: 10px;
+  height: 20px;
+}
+
+.player2 {
+  position: relative;
+  right: 10px;
+  font-size: 15px;
+  text-align: center;
+  direction: rtl;
+  margin-top: 10px;
+  height: 20px;
+}
+
+.容器 {
+  position: absolute;
+  left: 370px;
+}
+
+.大战AI {
+  border: 1px solid black;
+  width: 50px;
+}
+
+.AI选择 {
+  text-align: center;
+  display: block;
+  border: 1px black solid;
+  border-top: 0;
+  width: 50px;
+}
+
+.选择:hover {
+  background-color: rgba(160, 160, 160);
+  color: white;
+  cursor: pointer;
+}
+
+.middle {
+  border: 1px solid black;
+  border-right: 0;
+  border-left: 0;
+}
+/*其他*/
+.小谜题 {
+  background-image: url(图片/？？？.png);
+  width:70%;
+  padding:30px;
+  padding-left:28px;
+  text-align: center;
+  border-radius: 0 10px 0 0;
+  position: relative;
+}
+
+.box2{
+  width:25%;
+  padding:10px;
+  height:300px;
+  margin:0;
+}
+
+.option{
+  text-align:left;
+  padding-left: 20px;
+}
+
+.option img{
+  width:3em;
+  height:3em;
+  position: relative;
+  top:2em;
+  left:0.5em;
+}
+
+.OptionContainer{
+  width:130px;
+  height:auto;
+  border:#666 1px solid;
+  border-radius: 10px 10px 0 0;
+  position:absolute;
+  right:0;
+  top:0;
+  background-color: white;
+}
+
+.OptionBox{
+  width:100%;
+  height:100px;
+  border:1px rgba(160, 160, 160, 0.4) solid;
+  border-left:0;
+  border-right:0;
+ background-color: rgba(240, 240, 240);
+ display:flex;
+ position: relative;
+}
+
+.OptionBox input{
+  width:100%;
+  background-color:rgba(240, 240, 240);
+  border:none;
+}
+
+.OptionBox h4{
+ position: absolute;
+ bottom:60px;
+}
+
+.OptionBox div{
+  height:auto;
+  width:auto;
+  margin:40px 10px 45px 10px;
+  cursor:pointer
+}
+
+.active::after{
+ content:"√";
+ position:absolute;
+}
