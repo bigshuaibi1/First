@@ -401,6 +401,61 @@
 
             </script>
         </div>
+        <div class="solid" id="随机抽签">
+            <h3 style="margin-bottom: 0;">随机抽签</h3>
+            <p class="介绍">应某人要求制作的抽签小程序。真是太有用了</p>
+            <p><button id="标签+1">标签数+1</button><button id="标签-1">标签数-1</button><button id="抽签开始">开始</button></p>
+            <input class="抽签标题" type="text" placeholder="输入标题">
+            <p>结果：<span id="draw"></span></p>
+         <input id="lot1" type="text" placeholder="输入抽签内容">
+         <input id="lot2" type="text" placeholder="输入抽签内容">
+         <input id="lot3" type="text" placeholder="输入抽签内容">
+         <script>
+          const 标签加1=document.getElementById("标签+1")
+          const 标签减1=document.getElementById("标签-1")
+          const 抽签开始=document.getElementById("抽签开始")
+          const LotContainer=document.getElementById("随机抽签")
+          let LotNumber=3
+          let DrawNumber=0
+          function LotStart(){
+            const lot=Math.random() * 100;
+            for(i=1;i<=LotNumber;i++){
+                if(document.getElementById(`lot${i}`).value==""){
+                    alert("请给所有标签输入内容")
+                    return
+                }
+            }
+            DrawNumber=DrawNumber+1
+            for(i=1;i<=LotNumber;i++){
+                if(lot<100*i/LotNumber&&lot>=100*(i-1)/LotNumber){
+                   const draw=document.getElementById(`lot${i}`).value
+                   const DrawContainer=document.getElementById("draw")
+                   DrawContainer.innerHTML=`${draw}第${DrawNumber}次` 
+                   return
+                }
+            }
+          } 
+          function AddLot(){
+            LotNumber = LotNumber + 1;
+            LotContainer.insertAdjacentHTML('beforeend', 
+        `<input id="lot${LotNumber}" type="text" placeholder="输入抽签内容">`);
+          }
+          function DeleteLot(){
+            if(LotNumber==0){
+                alert("已经没有标签可以删除了")
+                return
+            }
+            document.getElementById(`lot${LotNumber}`).remove()
+            LotNumber=LotNumber-1
+          }
+          标签加1.addEventListener("click",AddLot)
+          标签减1.addEventListener("click",DeleteLot)
+          抽签开始.addEventListener("click",LotStart)
+         </script>
+        </div>
+        <div class="solid" id="颜文字的奇妙冒险">
+          <a href="颜文字的奇妙冒险.html">点击进入</a>
+        </div>
     </div>
     <!--导航-->
     <div class="ul">
@@ -420,6 +475,10 @@
         <a href="#凑数的" class="a ul-box lvmen">凑数的</a>
 
         <a href="#帅比vs哈比" class="a ul-box lvmen">帅比vs哈比</a>
+
+        <a href="#随机抽签" class="a ul-box lvmen">随机抽签</a>
+
+        <a href="#颜文字的奇妙冒险" class="a ul-box lvmen">颜文字的奇妙冒险</a>
     </div>
     <!--广告-->
 
@@ -441,10 +500,12 @@
             <br><span style="font-size:10px;color:rgb(160 160 160)">取石地</span>
         </p>
     </div>
+    <!--成就-->
     <audio  id="成就.mp3" src="音频/成就.mp3"> </audio> 
     <div class="成就box" id="3成就"><img src="图片/你被骗了2.jpg"><h3>梅开二度</h3><p>你又我被骗了(*≧▽≦)</p></div>
     <div class="成就box" id="4成就"><img src="图片/achievement4.jpg"><h3>石粒！</h3><p>大神不过如此，连石头都被您打碎了</p></div>
     <div class="成就box" id="7成就"><img src="图片/achievement7.png"><h3>世另ha</h3><p>那一夜，哈比苦思良久，ta怎么也不会想到在另一个世界竟有与ta心理性别相同的人</p></div>
+    <!--/成就-->
     <script>
         function guanbi() {
             弹窗1.style.display = "none";
@@ -473,7 +534,6 @@
         const 点击 = document.getElementById("点击");
         点击.addEventListener("mouseover", dianji)
         点击.addEventListener("mouseout", yikai)
-        //成就
         const audio=document.getElementById("成就.mp3");
         //成就3
         const 诈骗2=document.getElementById("点击");

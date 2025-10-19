@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;width:100%">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meat name="description" content="你将作为一个颜文字在班图拉瓦"></meat>
+    <meat name="author" content="大帅比"></meat>
+    <title>颜文字的奇妙冒险￣ω￣</title>
+<style>
+
+.screen{
+    margin:0;
+    position: relative;
+    width:100%;
+    height:100%;
+    display: flex;
+    background-color: black ;   
+    z-index:0;
+}
+.game{
+    box-sizing: border-box;
+    width:1300px;
+    height:600px;
+    position: relative;
+    margin:auto;
+    background-color: white;
+    overflow: hidden;
+    z-index:1;
+}
+.主角{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*地图搭建下面*/
+.map{
+    position: absolute;
+    left:0;
+    top:0;
+}
+.housebody{
+    height:300px;
+    width:300px;
+    border:black 1px solid;
+    position: absolute;
+    box-sizing: border-box;
+}
+/*地图搭建上面*/
+.attackleft{
+    white-space: nowrap;
+    pointer-events: none;
+    position:absolute;
+    top:-50%;
+    left:0;
+    transform-origin:left;
+    font-size: 2em;
+    margin:0;
+    display:none
+}
+.attackright{
+    white-space: nowrap;
+    pointer-events: none;
+    position: absolute;
+    top:-50%;
+    left:100%;
+    transform-origin:left;
+    font-size: 2em;
+    margin:0;
+    display:none
+}
+.left{
+    position: absolute;
+    left:90px;
+    top:65px;
+    border:1px solid black;
+    width:60px;
+    text-align:center;
+    height:30px;
+    background-color:rgba(0,0,0,0.1);
+    z-index:1
+}
+.BlueBar{
+    position: absolute;
+    top:15px;
+    left:25px;
+    height:60px;
+    width:60px;
+    border:1px black solid;
+    border-radius: 50%;
+}
+.HP{
+    position: absolute;
+    left:90px;
+    top:10px;
+    font-size:3em;
+}
+.right{
+    position: absolute;
+    left:180px;
+    top:65px;
+    border:1px solid black;
+    width:60px;
+    text-align:center;
+    height:30px;
+    background-position: 5px 0;
+    overflow:hidden;
+    background-color:rgba(0,0,0,0.1);
+    z-index: 1;
+}
+.cd::before{
+  content:"";
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  transform:scaleX(0);
+  transform-origin: right center;
+  background-color:rgba(255,255,255);
+  animation: 0.7s cd ease-out forwards;
+  z-index:2
+}
+.cd-text{
+    position:relative;
+    z-index:3;
+}
+@keyframes cd {
+    to{transform:scaleX(1)}
+}
+.图标{
+    position: absolute;
+    font-size: 1.25em;
+    cursor:pointer;
+    z-index: 100;
+}
+.图标:hover{
+    transform:scale(1.25);
+}
+.地图{
+   top:15px;
+   right:1em
+}
+.背包{
+   top:15px;
+   right:4em
+}
+.背包窗口{
+    display:none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:800px;
+    height:500px;
+    z-index:1;
+}
+.背包窗口-left{
+    box-sizing: border-box;
+   position:absolute;
+   left:0;
+   top:0;
+   height:100%;
+   width:40%;
+   border-radius: 25px 0 0 25px;
+   border:1px solid rgba(0,0,0,0.5);
+   background-color:white;
+}
+.背包窗口-right{
+    box-sizing: border-box;
+    position:absolute;
+    right:0;
+    top:0;
+    width:60%;
+    height:100%;
+    border-radius: 0 25px 25px 0;
+    border:1px solid rgba(0,0,0,0.5);
+    background-color:white;
+}
+.地图窗口{
+    display:none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:800px;
+    height:500px;
+    border:1px black solid;
+    z-index:1;
+    background-color:white;
+    border-radius: 25px;
+}
+.关闭{
+    position:absolute;
+    right:16px;
+    top:5px;
+    z-index:2;
+}
+.monster{
+    position:absolute
+}
+</style>
+</head>
+<body class="screen">
+   <div class="game">
+    <div class="主角"><span class="attackleft fight">刘硕洋</span>(￣▽￣)<span class="attackright fight">董政轩</span></div>
+    <!--左上角UI开始-->
+    <div>
+        <div class=" BlueBar"></div>
+        <div class="HP"><span>♡</span><span>♡</span><span>♡</span><span>♡</span><span>♡</span></div>
+        <div class="left cd"><span class="cd-text">刘硕洋</span></div>
+        <div class="right cd"><span class="cd-text">董政轩</span></div>
+    </div><!--左上角UI结束-->
+    <!--右上角ui及其窗口开始-->
+    <div class="背包 图标">背包</div>
+    <div class="地图 图标">地图</div>
+    <!--UI-->
+    <div class="背包窗口 窗口">
+        <div class="关闭 图标">关闭</div>
+        <div class="背包窗口-left"></div>
+        <div class="背包窗口-right"></div>
+    </div>
+    <div class="地图窗口 窗口">
+        <div class="关闭 图标">关闭</div>
+    </div><!--窗口-->
+    <!--右上角ui及其窗口结束-->
+    <!--场景开始-->
+    <div class="map">
+    <div class="monster" style="top:400px;left: -300px">(〝▼皿▼)</div>
+     <div class="housebody impassable" style="top:510px;left: 0px;"></div> 
+     <div class="housebody impassable" style="top:510px;left: 300px"></div>
+     <div class="housebody impassable" style="top:510px;left: 600px;"></div>
+     <div class="housebody impassable" style="top:510px;left: 900px"></div>
+     <div class="housebody impassable" style="top:510px;left: 1200px;"></div> 
+     <div class="housebody impassable" style="top:510px;left: 1500px;"></div>
+     <div class="housebody impassable" style="top:510px;left: 1800px"></div>
+     <div class="housebody impassable" style="top:210px;left: -200px"></div>
+     <div class="housebody impassable" style="top:-90px;left: 0px;"></div> 
+     <div class="housebody impassable" style="top:-90px;left: 300px"></div>
+     <div class="housebody impassable" style="top:-90px;left: 600px;"></div>
+     <div class="housebody impassable" style="top:-90px;left: 900px"></div>
+     <div class="housebody impassable" style="top:-90px;left: 1200px;"></div> 
+     <div class="housebody impassable" style="top:-90px;left: 1500px;"></div>
+     <div class="housebody impassable" style="top:-90px;left: 1800px"></div>
+     <!--走廊-->
+     <div class="housebody impassable" style="top:-390px;left: 1800px"></div>
+     <div class="housebody impassable" style="top:-600px;left: 2100px"></div>
+     <div class="housebody impassable" style="top:-600px;left: 2400px"></div>
+     <div class="housebody impassable" style="top:-600px;left: 2700px"></div>
+     <div class="housebody impassable" style="top:-600px;left: 3000px"></div>
+     <div class="housebody impassable" style="top:-390px;left: 3300px"></div>
+     <div class="housebody impassable" style="top:-90px;left: 3300px"></div>
+     <div class="housebody impassable" style="top:210px;left: 3300px"></div>
+     <div class="housebody impassable" style="top:510px;left: 3300px"></div>
+     <div class="housebody impassable" style="top:810px;left: 3300px"></div>
+     <div class="housebody impassable" style="top:1020px;left: 3000px"></div>
+     <div class="housebody impassable" style="top:1020px;left: 2700px"></div>
+     <div class="housebody impassable" style="top:1020px;left: 2400px"></div>
+     <div class="housebody impassable" style="top:1020px;left: 2100px"></div>
+     <div class="housebody impassable" style="top:810px;left: 1800px"></div>
+    </div><!--场景结束-->
+   </div>
+</body>
+<script>
+    /*     _oo0oo_
+          o8888888o
+          88" . "88
+          (| -_- |)
+           O\ = /O
+       ____/`---'\____
+     .   ' \\| |// `.
+      / \\||| : |||// \
+    / _||||| -:- |||||- \
+      | | \\\ - /// | |
+    | \_| ''\---/'' |_/ |
+     \ .-\__ `-` ___/-. /
+  ___`. .' /--.--\ `. . __
+."" '< `.___\_<|>_/___.' >'"".
+| | : `- \`.;`\ _ /`;.`/ - ` : | |
+   \ \ `-. \_ __\ /__ _/ .-` / /
+    \佛祖保佑，永无Bug*/
+var 主角 = document.querySelector(".主角")
+var map = document.querySelector(".map") 
+//html读取  
+let T=0
+let L=0
+const key=new Set(); 
+let x0=0
+let y0=0
+  function movechange(event){
+    key.add(event.key.toLowerCase());
+    if(key.has("w")&&key.has("d")){
+        y0=5;  
+        x0=-5;  
+    }else if(key.has("w")&&key.has("a")){
+        y0=5;  
+        x0=5;  
+    }else if(key.has("s")&&key.has("d")){
+        y0=-5;  
+        x0=-5; 
+    }else if(key.has("s")&&key.has("a")){
+        y0=-5;  
+        x0=5; 
+    }else if(key.has("w") ){
+        y0=5;
+        x0=0;  
+     }else if(key.has("s")){
+        y0=-5;
+        x0=0;       
+     }else if(key.has("d")){
+        y0=0;
+        x0=-5;
+     }else if(key.has("a") ){
+        y0=0;
+        x0=5;  
+     }              
+}//本次移动的改变量
+  function IfMove(){
+        const impassable=document.getElementsByClassName("impassable")
+        const 角色=主角.getBoundingClientRect()
+        const x21=角色.left-x0
+        const y21=角色.top-y0
+        const x22=x21+角色.width
+        const y22=y21+角色.height
+        for(let i = 0; i < impassable.length; i++) {
+        const object = impassable[i].getBoundingClientRect()
+        const x11=object.left+3.5
+        const y11=object.top+4
+        const x12=x11+object.width-7
+        const y12=y11+object.height-9
+        if(x21<x12&&x22>x11&&y21<y12&&y22>y11){
+            return false
+        }
+    }
+       return true 
+      }//检查角色移动是否将与物体接触
+  function move(event){
+    movechange(event);
+    var contact = IfMove();
+    if(contact){
+       T=T+y0
+       L=L+x0 
+       map.style.top=`${T}px`
+       map.style.left=`${L}px`
+       x0=0
+       y0=0
+    }
+}
+  document.addEventListener("keydown",move)
+  document.addEventListener("keyup",function(){key.delete(event.key.toLowerCase())})
+//主角移动系统
+let HPN
+const HP=document.querySelector(".HP")
+function Restore(){
+            HPN = HPN + 1;
+            HP.insertAdjacentHTML('beforeend',`<span id="${HPN}">`);
+          }//回血
+function Deduct(){
+            document.getElementById(`<span id="${HPN}">`).remove()
+                HPN=HPN-1
+            if(HPN==0){
+
+            }
+          }//减血
+          //血量（由抽签小程序增减标签功能改良而来，前天我姐让我写了个抽签程序，今天就用到了血量显示上，巧）
+function 获取角度(){
+    const element=主角.getBoundingClientRect();
+    const centerx = element.left + element.width / 2;
+    const centery = element.top + element.height / 2;
+    const mousex = event.clientX;
+    const mousey = event.clientY;
+    const dx = mousex - centerx;
+    const dy = mousey - centery;
+    const angle=Math.atan2(dy,dx);
+    //得到鼠标角度
+}          
+function fight1(event){
+    获取角度(event)
+    if(angle<-Math.PI/2||angle>Math.PI/2){
+        const attack=document.querySelector(".attackleft");
+        attack.style.display="block";
+        setTimeout(function(){attack.style.display="none"},400)
+        attack.style.transform=`rotate(${angle}rad) rotateX(180deg)`}/*左*/
+        else if(angle>=-Math.PI/2&&angle<=Math.PI/2){
+        const attack=document.querySelector(".attackright");
+        attack.style.display="block";
+        setTimeout(function(){ attack.style.display="none"},400);
+        attack.style.transform=`rotate(${angle}rad)`;}/*右*/
+    //判断左右
+    const left=document.querySelector(".left");
+    const right=document.querySelector(".right");
+    left.classList.remove("cd")
+    right.classList.remove("cd")
+    void right.offsetWidth
+    void left.offsetWidth
+    left.classList.add("cd")
+    right.classList.add("cd")
+    //攻击CD显示
+    event.preventDefault()
+     document.removeEventListener("mousedown",fight1)
+     setTimeout(function(){document.addEventListener("mousedown",fight1);},700)
+}
+  document.addEventListener("mousedown",fight1)//戳剑
+function fight2(){}//劈砍
+function fight3(){}//远程
+    //右上角UI开始
+    const 背包=document.querySelector(".背包")
+    const 地图=document.querySelector(".地图")
+    const 背包窗口=document.querySelector(".背包窗口")
+    const 地图窗口=document.querySelector(".地图窗口")
+    function openbag(){
+        背包窗口.style.display="block" 
+    }
+    function openmap(){
+        地图窗口.style.display="block"
+    }
+    背包.addEventListener("click",openbag)
+    地图.addEventListener("click",openmap)
+    //右上角UI结束
+    const 关闭=document.getElementsByClassName("关闭")
+    function close(){
+       const 窗口=this.parentElement
+       窗口.style.display="none"
+    }
+    for(var i=0;i<关闭.length;i++){
+       关闭[i].addEventListener("click",close)
+    }//控制窗口关闭（注：关闭按钮必须直接在窗口元素下）
+    //小怪AI开始
+    const monster=document.getElementsByClassName("monster")
+    
+    //小怪AI技结束
+    //快捷键开始
+    function ShortcutKeys(event){
+     const key=event.key.toLowerCase()
+     if(key=="b"){
+       if(背包窗口.style.display=="none"){openbag()}else{背包窗口.style.display="none"}
+     }else if(key=="m"){if(地图窗口.style.display=="none"){openmap()}else{地图窗口.style.display="none"}}
+    }
+    document.addEventListener("keydown",ShortcutKeys)
+    //快捷键结束
+</script>
+</html>
+<!--需要实现的目标
+    1.碰撞体积√
+    2.战斗系统
+    3.背包 地图
+    4.建筑内部进入-->

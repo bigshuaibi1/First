@@ -30,6 +30,20 @@
   color: white;
 }
 
+.page {
+  width: 60%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.p {
+  text-indent: 2em;
+}
+
+.paragraphs {
+  padding-left: 2em;
+}
+/*导航*/
 .ul {
   position: fixed;
   left: 60%;
@@ -40,16 +54,22 @@
   border-bottom: 1px solid rgba(160, 160, 160, 0.4);
   overflow: hidden;
 }
+
 .ul2{
   position: fixed;
-  left: auto;
-  right:0;
-  top: 10px;
-  margin: 10px;
-  width: 160px;
+  left: 77.5%;
+  top: 5px;
+  margin:10px;
+  width:160px;
   background-color: white;
-  border-bottom: 1px solid rgba(160, 160, 160, 0.4);
+  border: 1px solid rgba(160, 160, 160, 0.4);
   overflow: hidden;
+  z-index:1;
+}
+
+.ulapper{
+  font-size:0.8em;
+  cursor: pointer;
 }
 
 .ul-box {
@@ -69,20 +89,7 @@
   background-image: url(图片/绿门.png);
   background-size: 100% 100%;
 }
-
-.page {
-  width: 60%;
-  border-radius: 10px;
-  border: 1px solid black;
-}
-
-.p {
-  text-indent: 2em;
-}
-
-.paragraphs {
-  padding-left: 2em;
-}
+/*/导航*/
 /*广告*/
 .广告 {
   position: fixed;
@@ -543,10 +550,17 @@
   border-right: 0;
   border-left: 0;
 }
+
+.抽签标题{
+  background:none;
+  border:none;
+  text-align:center;
+  font-size:large
+}
 /*其他*/
 .小谜题 {
   background-image: url(图片/？？？.png);
-  width:70%;
+  width:65%;
   padding:30px;
   padding-left:28px;
   text-align: center;
@@ -554,11 +568,26 @@
   position: relative;
 }
 
+.everything{
+display:none;
+position:absolute;
+top:95px;
+background-color:#666;
+color:white;
+font-size: 0.4em;
+border-radius:15px;
+border:#666 solid 1px;
+padding-left:2px;
+width:100%;
+margin:0;
+}
+
 .box2{
   width:25%;
   padding:10px;
   height:300px;
   margin:0;
+  position: relative;
 }
 
 .option{
@@ -617,4 +646,19 @@
 .active::after{
  content:"√";
  position:absolute;
+}
+
+.推荐{
+  width:30%;
+  height:auto;
+  position:absolute;
+  right:0;
+  top:110px;
+  text-align:center;
+  border:black solid 1px
+}
+
+.推荐 img{
+  width:100%;
+  height:auto;
 }

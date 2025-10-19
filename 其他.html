@@ -16,15 +16,35 @@
     <!--导航-->
     <div class="ul2">
         <div class="ul-box">
-            <h3> 绿门传送系统</h3>
+            <h3>绿门传送系统</h3>
+            <div id="ulapper" class="ulapper">点击此处展开</div>
         </div>
-
+        <div style="display:none" id="ulapper2">
         <a href="index.html" class="a ul-box lvmen">主页</a>
 
-
         <a href="#小谜题" class="a ul-box lvmen">小谜题</a>
+        </div>
+        <script>
+            var ulapper=document.getElementById("ulapper")
+            ulapper.addEventListener("click",function(){
+                var ul=document.getElementById("ulapper2");
+                if(ulapper.textContent=="点击此处展开"){
+                ul.style.display="block";
+                ulapper.textContent="点击此处收起"
+                }else{
+                ul.style.display="none";
+                ulapper.textContent="点击此处展开"}
+            })
+        </script>
     </div>
-
+<!--/导航-->
+<!--推荐-->
+<div class="推荐">
+    <h3>推荐</h3>
+    <img src="图片/史上最强网站封面.png">
+</div>
+<!--/推荐-->
+<!--小谜题-->
     <div id="小谜题" class="小谜题">
         <h2>小谜题</h2>
         <div class="OptionContainer">
@@ -151,7 +171,15 @@
             <div class="box2">
                 <h3>8.背景题2</h3>
                 <p>凶器是？</p>
-                <div class="option">A.everything<br>B.一把刀<br>C.石头<br>D.weiß nicht.</div>
+                <div class="everything" id="everything2">Hey,what are you in for?</div>
+                <div class="option"><span id="everything"
+                        style="cursor:pointer">A.everything</span><br>B.一把刀<br>C.石头<br>D.weiß nicht.</div>
+                <script>
+                    const everything = document.getElementById("everything");
+                    const everything2 = document.getElementById("everything2")
+                    everything.addEventListener("mouseover", function () { everything2.style.display = "block" })
+                    everything.addEventListener("mouseout", function () { everything2.style.display = "none" })
+                </script>
             </div>
             <div class="box2">
                 <h3>9.旧首级去哪儿了题</h3>
@@ -174,19 +202,33 @@
             </div>
         </div>
     </div>
+    <!--/小谜题-->
+    <!--视频专区-->
+    <div>
+    
+    </div>
+    <!--/视频专区-->
 </body>
 <footer>
     <div id="footer" class="footer">
         <p style="color:white;text-align:center;margin:0">Copyright © 2025 大帅比</p>
     </div>
 </footer>
-    <div  class="弹窗" id="achievementimage">
-        <button id="关闭2" class="关闭">&times</button>
-        <img src="图片/骷髅王.jpg" style="width:100%;height:100%;"></div>
+<div class="弹窗" id="achievementimage">
+    <button id="关闭2" class="关闭">&times</button>
+    <img src="图片/骷髅王.jpg" style="width:100%;height:100%;">
+</div>
 <!--成就-->
-<audio  id="成就.mp3" src="音频/成就.mp3"> </audio> 
-    <div class="成就box" id="5成就"><img src="图片/不知道.png"><h3>不知道</h3><p>现在你知道了吗</p></div>
-    <div class="成就box" id="6成就"><img src="图片/骷髅王.jpg"><h3>没问题</h3><p>已经没有问题可以难得到您了</p></div>
+<audio id="成就.mp3" src="音频/成就.mp3"> </audio>
+<div class="成就box" id="5成就"><img src="图片/不知道.png">
+    <h3>不知道</h3>
+    <p>现在你知道了吗</p>
+</div>
+<div class="成就box" id="6成就"><img src="图片/骷髅王.jpg">
+    <h3>没问题</h3>
+    <p>已经没有问题可以难得到您了</p>
+</div>
+<!--/成就-->
 <script>
     const optionA = document.getElementsByClassName("A");
     const optionB = document.getElementsByClassName("B");
@@ -200,7 +242,7 @@
             this.classList.add('active');
         };
         const ti = this.classList.contains('4ti');
-        if (ti&&option==false){
+        if (ti && option == false) {
             alert("“你凭什么假定我的性别”哈比如此说道")
         }
     }
@@ -212,21 +254,21 @@
     }
     //检查
     function submit() {
-        const DD=[]; 
-        for (var i = 0; i < 11; i++) {  
+        const DD = [];
+        for (var i = 0; i < 11; i++) {
             const D = optionD[i].classList.contains("active");
             DD.push(D);
         };
-        const answer=document.getElementById("12题").value;
-        if(DD.filter(Boolean).length==11&&answer==="不知道"){
-            alert("你就是哈比本比吧，啥也不知道"); 
+        const answer = document.getElementById("12题").value;
+        if (DD.filter(Boolean).length == 11 && answer === "不知道") {
+            alert("你就是哈比本比吧，啥也不知道");
             achievement5();
         };
-        const optionE  =[...optionA,...optionB,...optionC,...optionD];
-        const right=[];
-        const wrong=[];
-        const active=[];
-        for (var i=0;i<44;i++){
+        const optionE = [...optionA, ...optionB, ...optionC, ...optionD];
+        const right = [];
+        const wrong = [];
+        const active = [];
+        for (var i = 0; i < 44; i++) {
             const rightt = optionE[i].classList.contains("right") && optionE[i].classList.contains("active");
             right.push(rightt);
             const wrongg = optionE[i].classList.contains("wrong") && optionE[i].classList.contains("active");
@@ -234,51 +276,53 @@
             const activee = optionE[i].classList.contains("active");
             active.push(activee);
         };
-        const activeCount=active.filter(Boolean).length;
+        const activeCount = active.filter(Boolean).length;
         const wrongCount = wrong.filter(Boolean).length;
         const rightCount = right.filter(Boolean).length;
-        const achievementimage=document.getElementById("achievementimage");
+        const achievementimage = document.getElementById("achievementimage");
         const 关闭 = document.getElementById("关闭2");
-        关闭.addEventListener("click",function(){achievementimage.style.display="none"});
-        if(rightCount===13&&wrongCount===0&&answer==4311){
-           alert("全部正确!");
-            achievement6();
-            const panbie6=JSON.parse(localStorage.getItem("achievement6"));
-            if (panbie6==="green"){
+        关闭.addEventListener("click", function () { achievementimage.style.display = "none" });
+        if (rightCount === 13 && wrongCount === 0 && answer == 4311) {
+            alert("全部正确!");
+            const panbie6 = JSON.parse(localStorage.getItem("achievement6"));
+            if (panbie6 === "green") {
                 alert("我猜你又按了一遍是为了看成就图吧。那好吧o(*￣▽￣*)o ，只要你点击确定我就给你看");
-                achievementimage.style.display="block";
+                achievementimage.style.display = "block";
             }
-        }else if(activeCount==11&&rightCount==11&&answer==4311){
-           alert("仅剩1处错误（提示：小米未必只有一个，就像帅比不仅可以是我，也可以是屏幕前的你）")
-        }else if(activeCount==12&&rightCount==12&&answer==4311){
-           alert("仅剩1处错误（提示：天下帅比唯汝与吾二人耶?）")
-        }else if(activeCount<11||answer===""){
+            achievement6();
+        } else if (activeCount == 11 && rightCount == 11 && answer == 4311) {
+            alert("仅剩1处错误（提示：小米未必只有一个，就像帅比不仅可以是我，也可以是屏幕前的你）")
+        } else if (activeCount == 12 && rightCount == 12 && answer == 4311) {
+            alert("仅剩1处错误（提示：天下帅比唯汝与吾二人耶?）")
+        } else if (activeCount < 11 || answer === "") {
             alert("请回答全部问题后再点击提交");
-        }else if(activeCount==13&&rightCount==13&&answer!==4311){
+        } else if (activeCount == 13 && rightCount == 13 && answer !== 4311) {
             alert(`仅剩1处错误（提示:是密码输入错误）`)
-        }else{alert("仍存在多处错误")} ;
+        } else { alert("仍存在多处错误") };
     }
     const 提交 = document.getElementById("提交");
     提交.addEventListener("click", submit)
-      //成就5
-      const audio=document.getElementById("成就.mp3");
-                  function achievement5(){
-                const panbie5=JSON.parse(localStorage.getItem("achievement5"));
-            if(panbie5!=="green"){
-            localStorage.setItem("achievement5",JSON.stringify("green"));
-             audio.play();
-             const div=document.getElementById("5成就");
-             div.style.animation="achievementup 5s linear";}
-            } 
-            //成就6
-            function achievement6(){
-            const panbie6=JSON.parse(localStorage.getItem("achievement6"));
-            if(panbie6!=="green"){
-            localStorage.setItem("achievement6",JSON.stringify("green"));
-             audio.play();
-             const div=document.getElementById("6成就");
-             div.style.animation="achievementup 5s linear";}
-            } 
+    //成就5
+    const audio = document.getElementById("成就.mp3");
+    function achievement5() {
+        const panbie5 = JSON.parse(localStorage.getItem("achievement5"));
+        if (panbie5 !== "green") {
+            localStorage.setItem("achievement5", JSON.stringify("green"));
+            audio.play();
+            const div = document.getElementById("5成就");
+            div.style.animation = "achievementup 5s linear";
+        }
+    }
+    //成就6
+    function achievement6() {
+        const panbie6 = JSON.parse(localStorage.getItem("achievement6"));
+        if (panbie6 !== "green") {
+            localStorage.setItem("achievement6", JSON.stringify("green"));
+            audio.play();
+            const div = document.getElementById("6成就");
+            div.style.animation = "achievementup 5s linear";
+        }
+    } 
 </script>
 
 </html>
