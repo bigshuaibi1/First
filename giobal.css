@@ -40,6 +40,14 @@
   text-indent: 2em;
 }
 
+.poem {
+  text-align: left;   
+    font-weight: 1000;
+    line-height: 1.3;     
+    font-family: "STKaiti", "NSimSun";
+    max-width: 600px;
+    padding-left: 3em;
+}
 .paragraphs {
   padding-left: 2em;
 }
@@ -317,7 +325,7 @@
 .bilibili:hover::after {
   content: "我的B站账号";
   background-color: gray;
-  font-size: 5px;
+  font-size: 15px;
   color: white;
   display: block;
   position: relative;
@@ -328,7 +336,7 @@
 .email:hover::after {
   content: "我的邮箱";
   background-color: gray;
-  font-size: 5px;
+  font-size: 15px;
   color: white;
   display: block;
   position: relative;
@@ -339,7 +347,7 @@
 .github:hover::after {
   content: "我的Github账号";
   background-color: gray;
-  font-size: 5px;
+  font-size: 15px;
   color: white;
   display: block;
   position: relative;
@@ -350,7 +358,7 @@
 .bank:hover::after {
   content: "我的银行账户和密码";
   background-color: gray;
-  font-size: 5px;
+  font-size: 15px;
   color: white;
   display: block;
   position: relative;

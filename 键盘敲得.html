@@ -17,7 +17,7 @@
     <div class="page">
         <div id="垃圾颂" class="passage"
             style="background-image:url(图片/85529de6adc86cbdd3e10417a03e9836b4815823.png);  border-radius:10px 10px 0 0">
-            <h3 style=text-align:center;margin-top:0>垃圾颂 【现】 我</h3>
+            <h3 style=text-align:center;margin-top:0>垃圾颂 <br>[现] 正革</h3>
             <p style=text-align:center>公元二零二四三月十七日，操场扫垃圾。忽有
                 <br>大风，垃圾起落起落故由此感。
                 <br>今日操场扫垃圾，慢步垃圾桶处移。
@@ -39,12 +39,32 @@
             </video>
         </div>
         <div id="骂？夸！" class="passage" style="background-image: url(图片/低情商教学.png);">
-            <h3 style=text-align:center;margin-top:0>骂？夸！ 【现】 me</h3>
+            <h3 style=text-align:center;margin-top:0>骂？夸！[现] 正革</h3>
             <p class="p">
                 我要狠狠地骂你：你的文笔烂似周树人，你的英语菜如英国人。你和爱因斯坦一样的笨，连吴彦祖也仅比你丑几分。你是世界的尘，一个卑微的人，我咒你可怜的擦去泪水的痕，那时只有喜极而泣的魂。
-                <br><span
-                    class="paragraphs">你写的诗烂似谪仙人，你五音不全如贝多芬。你和高斯欧拉一样的笨，连马斯克也仅比你穷几分。你是世界的尘，一个卑微的人，，我咒你可悲地走进生命的坟，那时仅是留下芳名长存。</span>
+                <br>
+                <span class="paragraphs">你写的诗烂似谪仙人，你五音不全如贝多芬。你和高斯欧拉一样的笨，连马斯克也仅比你穷几分。你是世界的尘，一个卑微的人，，我咒你可悲地走进生命的坟，那时仅是留下芳名长存。</span>
             </p>
+        </div>
+        <div id="你背上是什么" class="passage">
+           <h3 style=text-align:center;margin-top:0>你背上是<span style="color:red">什么</span><br>[现]正革</h3>
+           <div style=" display: grid;justify-content: center;">
+           <p class="poem">
+            你背上是什么<br>鲜血<br>你在背上吃东西了吗?<br>不，是鲜血</span><br>是什么?<br>鲜血!</span>            
+           </p>
+           <p class="poem">
+            是血红的鲜血<br>是绯红的鲜血<br>是猩红的鲜血<br>是血淋淋的世界<br>里通红的煤油灯<br>点亮在漆黑的夜
+           </p>
+           <p class="poem">
+            是源自那永世的仇敌<br>身体里每一根血管里的<br>喷溅而出的永恒的鲜血
+           </p>
+           <p class="poem">
+            在空中，它咆哮着喷涌着<br>像赤红的花朵<br>似灼热的火焰<br>如逐光的飞蛾<br>是绽放于黎明的鲜血<br>是燃烧着生命的鲜血<br>是尽情地飞舞的鲜血
+           </p>
+           <p class="poem">
+            啊！杀戮与鲜血<br>啊！死亡与鲜血<br>啊！沸腾的热血
+           </p>
+           </div>
         </div>
         <div id="青春伤痛文学之2024“年终”总结" class="passage" style="background-image: url(图片/星.jpg);color:gray">
             <h3 style=text-align:center;margin-top:0>青春伤痛文学之2024“年终”总结 <br>【现】 正革</h3>
@@ -77,16 +97,23 @@
         </div>
 
         <a href="index.html" class="a ul-box lvmen">主页</a>
-
-
         <a href="#垃圾颂" class="a ul-box lvmen">垃圾颂</a>
-
-
         <a href="#骂？夸！" class="a ul-box lvmen">骂？夸！</a>
-
+        <a href="#你背上是什么" class="a ul-box lvmen">你背上是<span style="color:red">什么</span></a>
         <a href="#青春伤痛文学之2024“年终”总结" class="a ul-box lvmen">青春伤痛文学之2024“年终”总结</a>
     </div>
 </body>
+<script>
+//特殊标示函数
+function highlight(elementId, words, style = "none"){
+    const element=document.getElementById(elementId)
+    words.forEach(word => {
+        const a= new RegExp(word,"g")
+        element.innerHTML=element.innerHTML.replace(a,`<span style=${style}>${word}</span>`)
+    });
+}
+highlight("你背上是什么",["鲜血","热血"],"color:red")
+</script>
 <footer>
     <div id="footer" class="footer">
         <p style="color:white;text-align:center;margin:0">Copyright © 2025 大帅比</p>

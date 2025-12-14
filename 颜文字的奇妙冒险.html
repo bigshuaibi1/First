@@ -364,7 +364,8 @@ function Deduct(){
             }
           }//减血
           //血量（由抽签小程序增减标签功能改良而来，前天我姐让我写了个抽签程序，今天就用到了血量显示上，巧）
-function 获取角度(){
+let angle
+function 获取角度(event){
     const element=主角.getBoundingClientRect();
     const centerx = element.left + element.width / 2;
     const centery = element.top + element.height / 2;
@@ -372,7 +373,7 @@ function 获取角度(){
     const mousey = event.clientY;
     const dx = mousex - centerx;
     const dy = mousey - centery;
-    const angle=Math.atan2(dy,dx);
+    angle=Math.atan2(dy,dx);
     //得到鼠标角度
 }          
 function fight1(event){
