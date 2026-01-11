@@ -2,6 +2,7 @@
 
 .main {
   padding: 0 5% 0 5%;
+  margin:0;
 }
 .container {
   display: flex;
@@ -38,6 +39,7 @@
 
 .p {
   text-indent: 2em;
+  padding:0
 }
 
 .poem {
@@ -284,12 +286,9 @@
 }
 
 .image {
+  margin:0;
   max-width: 100%;
   height: 220px;
-}
-
-.margin {
-  margin:10px 0;
 }
 
 .tubiao-image {
@@ -389,38 +388,38 @@
 
 .成就box{
   background-color:black;
-  height:110px;
-  width:320px;
+  height:140px;
+  width:350px;
   position:fixed;
-  right:20px;
-  bottom:-110px;
+  right:10px;
+  bottom:-150px;
 }
 
 @keyframes achievementup {
-  0%{bottom:-100px}
+  0%{bottom:-150px}
   10%{bottom:0}
   90%{bottom:0}
-  100%{bottom:-100px}
+  100%{bottom:-150px}
 }
 
 .成就box img{
   position:absolute;
-  height:110px;
-  width:110px;
+  height:140px;
+  width:140px;
 }
 
 .成就box h3{
   color:white;
   margin:0;
   position:absolute;
-  top:5px; 
-  left:120px;
+  top:7px; 
+  left:150px;
 }
 
 .成就box p{
   position:absolute;
   top:25px;
-  left:120px;
+  left:150px;
   color:rgba(160, 160, 160);
   font-size:15px;
 }
@@ -657,16 +656,21 @@ margin:0;
 }
 
 .推荐{
-  width:30%;
+  width:400px;
   height:auto;
+  margin:0;
   position:absolute;
-  right:0;
+  right:5px;
   top:110px;
-  text-align:center;
   border:black solid 1px
+}
+
+.推荐 div{
+   border:#666 solid 2px
 }
 
 .推荐 img{
   width:100%;
   height:auto;
+  border:black 1px solid;
 }

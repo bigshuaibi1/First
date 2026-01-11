@@ -14,9 +14,9 @@
     <title>大帅比的个人网站</title>
   </head>
 
-  <body class="margin" id="body">
+  <body style="margin:0" id="body">
     <!--顶部-->
-    <div class="image marign" id="顶部">
+    <div class="image" id="顶部">
       <script>
         //以夏季昼夜时间为标准的背景图变换脚本1
         const hour = new Date().getHours();
@@ -39,12 +39,12 @@
             ><img src="图片/Untitled 06-21-2025 09-35-46.png" class="logo" /></a
           >人
         </p>
-        <p class="margin">网站</p>
+        <p style="margin:0">网站</p>
       </div>
     </div>
     <!--MainSection主要区域-->
 
-    <div class="marign main" id="main">
+    <div class="main" id="main">
       <script>
         //以夏季昼夜时间为标准的背景图变换脚本2
         let bgmap2;
@@ -101,20 +101,20 @@
             /></a>
           </div>
           <div class="box-under">
-            <h3 class="margin">用键盘敲的</h3>
+            <h3 style="margin:0">用键盘敲的</h3>
             <p>简介：用几百个汉字与标点符号+空格排列组合而成的。</p>
           </div>
           <div style="padding: 5px 0px 0px 10px">冷知识：用冰块儿冷的。</div>
         </div>
         <!--22222222222222222-->
         <div class="box card-first">
-          <div class="margin">
+          <div style="margin:0">
             <a href="超超超有用的的一些东西.html">
               <img src="图片/downloaded-image.png" class="box-image"
             /></a>
           </div>
           <div class="box-under">
-            <h3 class="margin">超超超有用的的一些<s>南北</s>东西</h3>
+            <h3 style="margin:0">超超超有用的的一些<s>南北</s>东西</h3>
             <p>
               简介：一些非常有用的玩意儿。人类不能失去它们，就像鱼不能失去自行车
             </p>
@@ -125,13 +125,13 @@
         </div>
         <!--333333333333333-->
         <div class="box card-first">
-          <div class="margin">
+          <div style="margin:0">
             <a href="其他.html">
               <img src="图片/省略号.png" class="box-image"
             /></a>
           </div>
           <div class="box-under">
-            <h3 class="margin">其他</h3>
+            <h3 style="margin:0">其他</h3>
             <p>
               简介：其他otherその他sonstigesautresПрочееΆλλαอื่นๆאחריםأخرى .
             </p>
@@ -179,42 +179,17 @@
 
      <!--3333333333333333333333333倒计时-->
 
-      <div class="margin">
+      <div style="margin:0">
         <div id="倒计时"></div>
-        <div id="生日贺卡" style="display:none">
-          <div class="birthday-card">
-            <div class="card-front">
-              <div class="balloons">
-                <div class="balloon"></div><div class="balloon"></div><div class="balloon"></div><div class="balloon"></div>
-              </div>
-              <div class="birthday-text">
-                <h1>🎉 生日快乐！ 🎂</h1>
-                <p class="wish">Happy birthday to you!</p>
-              </div>
-              <div class="cake">
-                <div class="plate"></div><div class="layer layer-bottom"></div><div class="layer layer-middle"></div><div class="layer layer-top"></div><div class="icing"></div>
-                <div class="candle">
-                  <div class="flame"></div>
-                </div>
-                <div class="cherry">🍒</div><div class="cherry">🍒</div>
-               </div>
-            </div>
-            <div class="card-inside">
-              <div class="inside-text">
-                <h3>致我的父亲，</h3>
-                <p>新的一年，也是新的一岁</p>
-                <p>祝你心想事成，梦想成真！</p>
-                <p class="signature">🎁 在此送上最诚挚的祝福 🎁</p>
-              </div></div></div>
-        </div>
+        
         <script>
           const gift = `<button type="button" onclick="
-                    const card = document.getElementById('生日贺卡');
+                    const card = document.getElementById('');
                     if(card) {
                         card.style.display = 'block';
                         this.style.display = 'none';
                     }">点击有惊喜</button>`;
-          const targetDate = new Date(2026, 0, 1, 12, 0, 0);
+          const targetDate = new Date(2026, 1, 17, 0, 0, 0);
           const 倒计时 = document.getElementById("倒计时");
           let intervalId;
           function countdown() {
@@ -229,8 +204,8 @@
               (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            return `距离倒计时结束<br>还剩下${days}天 ${hours}时 ${minutes}分 ${seconds}秒`;}
-          // 初始显示
+            return `距离到过年<br>还剩下${days}天 ${hours}时 ${minutes}分 ${seconds}秒`;}
+          // 在这里修改倒计时内容
           倒计时.innerHTML = `<h2>倒计时</h2>${countdown()}`;
           // 设置定时器
           intervalId = setInterval(() => {
@@ -241,9 +216,9 @@
       
       <!--Sectionthree区域4-->
       
-      <div class="margin" id="成就">
-        <h2 class="margin">成就</h2>
-        <p class="margin">网站成就，这应该是全世界独一份的了吧</p>
+      <div style="margin-top:20px" id="成就">
+        <h2 style="margin:0">成就</h2>
+        <p style="margin:0">网站成就，这应该是全世界独一份的了吧</p>
         <div class="成就container container">
           <div class="成就" id="成就1">
             <p>发现了我</p>
