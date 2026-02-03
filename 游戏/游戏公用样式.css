@@ -1,0 +1,19 @@
+.screen{
+    margin:0;
+    position: relative;
+    width:100%;
+    height:100%;
+    display: flex;
+    background-color: black ;   
+    z-index:0;
+}
+.game{
+    box-sizing: border-box;
+    width:1300px;
+    height:600px;
+    position: relative;
+    margin:auto;
+    background-color: white;
+    overflow: hidden;
+    z-index:1;
+}

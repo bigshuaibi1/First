@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height:100%;width:100%">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meat name="description" content="挑战制作网页版康威的生命游戏"></meat>
+    <meat name="author" content="大帅比"></meat>
+    <link rel="stylesheet" href="./生命游戏.css">
+    <link rel="stylesheet" href="/游戏/游戏公用样式.css">
+    <title>康威的生命游戏</title>
+</head>
+<body class="screen" id="screen">
+<div class="game" id="game"></div> 
+</body>> 
+<script>
+const game=document.getElementById('game')
+function Map_Size(){
+    let n=80
+    let m=40
+    return [n,m]
+}
+const size=Map_Size()
+let n=size[0]
+let m=size[1]
+
+function Initialize(){
+    let x=1
+    let y=1
+    let xn=100/n
+    let cell=''
+    while(x<=n){
+        while(y<=m){
+        cell+=`<div class="cell" id="${x},${y}"
+            style="left:${(x-1)*xn}%;top:${(y-1)*xn*13/6}%; width:${xn}%;
+            height:${xn*13/6}%;"></div>`
+            y++
+    }
+        y=1
+        x++
+    }
+    game.innerHTML=cell
+}
+Initialize()//初始化生成网格
+
+const cells=document.querySelectorAll('.cell')//获取所有细胞
+
+    cells.forEach(cell=>{
+        cell.addEventListener('click',()=>{
+            if (cell.classList.contains("alive")){
+            cell.classList.remove('alive')
+        } else {
+            cell.classList.add('alive');
+        }
+        })
+    })//点击细胞以激活
+function the_next_moment(){
+    let born=[]
+    let died=[]
+    for(let cell of cells){
+        const bianhao=cell.id.split(',').map(Number)
+        x=bianhao[0]
+        y=bianhao[1]
+        let bianhaos=[`${x-1},${y-1}`,`${x-1},${y}`,`${x-1},${y+1}`,`${x},${y-1}`,
+        `${x},${y+1}`,`${x+1},${y-1}`,`${x+1},${y}`,`${x+1},${y+1}`,]
+        let active_cell=0 
+        for(let j in bianhaos){
+            const around_cell=document.getElementById(`${bianhaos[j]}`)
+            if(around_cell&&around_cell.classList.contains('alive')){ 
+                active_cell=active_cell+1
+            }
+        }          
+            if(active_cell==3&&cell.classList.contains('alive')==false){
+                born.push(cell)
+            }//1.若该位置无活细胞且周围有3个活细胞则变为活细胞
+            else if((active_cell<2||active_cell>3)&&cell.classList.contains('alive')){
+                died.push(cell)
+            }//2&3&4.该位置为活细胞且周围细胞小于2则孤独致死大于三则拥挤致死在2到3之间则继续存活
+    }
+    born.forEach(cell=>{cell.classList.add('alive')})
+    died.forEach(cell=>{cell.classList.remove('alive')})
+}
+
+let autoRun=0
+document.addEventListener('keydown',(event)=>{
+    if(event.key=="Enter"){
+        the_next_moment()
+    }//按下回车键以进行下一刻
+    if(event.key==" "){
+        if(autoRun==0){
+            autoRun=setInterval(the_next_moment,500)
+        }
+        else{
+            clearInterval(autoRun)
+            autoRun=0
+        }
+    }
+})
+</script> 
