@@ -56,7 +56,7 @@
             suijishu.innerHTML = `<p>您的IQ可能是<span id=IQ>${IQnumber}</span></p>`;
           }
           function yes() {
-            if (IQnumber === null) {
+            if (!IQnumber) {
               alert("惊了，您没有一丁点的智商");
             } else {
               alert(`您的IQ为${IQnumber}`);
@@ -444,28 +444,46 @@
           ><button id="标签-1">标签数-1</button
           ><button id="抽签开始">开始</button>
         </p>
-        <input class="抽签标题" type="text" placeholder="输入标题" />
+        <input class="抽签标题" type="text" placeholder="输入标题">
         <p>结果：<span id="draw"></span></p>
-        <input id="lot1" type="text" placeholder="输入抽签内容" />
-        <input id="lot2" type="text" placeholder="输入抽签内容" />
-        <input id="lot3" type="text" placeholder="输入抽签内容" />
+        <div id='LotContainer' 
+        style="display:grid;grid-template-columns:repeat(auto-fit,160px);">
+          <input id="lot1" type="text" placeholder="输入抽签内容">
+          <input id="lot2" type="text" placeholder="输入抽签内容">
+          <input id="lot3" type="text" placeholder="输入抽签内容">
+        </div>  
         <script>
           const 标签加1 = document.getElementById("标签+1");
           const 标签减1 = document.getElementById("标签-1");
           const 抽签开始 = document.getElementById("抽签开始");
-          const LotContainer = document.getElementById("随机抽签");
+          const LotContainer = document.getElementById("LotContainer");
           let LotNumber = 3;
           let DrawNumber = 0;
-          function LotStart() {
+          标签加1.addEventListener("click", ()=>{
+            LotNumber = LotNumber + 1;
+            LotContainer.insertAdjacentHTML(
+              "beforeend",
+              `<input id="lot${LotNumber}" type="text" placeholder="输入抽签内容">`
+            );
+          });
+          标签减1.addEventListener("click", ()=>{
+            if (LotNumber == 0) {
+              alert("已经没有标签可以删除了");
+              return;
+            }
+            document.getElementById(`lot${LotNumber}`).remove();
+            LotNumber = LotNumber - 1;
+          });
+          抽签开始.addEventListener("click", ()=>{
             const lot = Math.random() * 100;
             for (i = 1; i <= LotNumber; i++) {
-              if (document.getElementById(`lot${i}`).value == "") {
+              if (!document.getElementById(`lot${i}`).value) {
                 alert("请给所有标签输入内容");
                 return;
               }
             }
             DrawNumber = DrawNumber + 1;
-            for (i = 1; i <= LotNumber; i++) {
+            for (i = 1; i <= LotNumber; i++){
               if (
                 lot < (100 * i) / LotNumber &&
                 lot >= (100 * (i - 1)) / LotNumber
@@ -476,25 +494,7 @@
                 return;
               }
             }
-          }
-          function AddLot() {
-            LotNumber = LotNumber + 1;
-            LotContainer.insertAdjacentHTML(
-              "beforeend",
-              `<input id="lot${LotNumber}" type="text" placeholder="输入抽签内容">`
-            );
-          }
-          function DeleteLot() {
-            if (LotNumber == 0) {
-              alert("已经没有标签可以删除了");
-              return;
-            }
-            document.getElementById(`lot${LotNumber}`).remove();
-            LotNumber = LotNumber - 1;
-          }
-          标签加1.addEventListener("click", AddLot);
-          标签减1.addEventListener("click", DeleteLot);
-          抽签开始.addEventListener("click", LotStart);
+          });
         </script>
       </div>
     </div>
@@ -557,7 +557,7 @@
       <img src="图片/achievement7.png" />
       <h3>世另ha</h3>
       <p>
-        那一夜，哈比苦思良久，ta怎么也不会想到在另一个世界竟有与ta心理性别相同的人
+        那一夜,哈比苦思良久,ta怎么也不会想到在另一个世界竟还有着与ta心理性别相同的人
       </p>
     </div>
     <!--/成就-->

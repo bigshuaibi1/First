@@ -16,47 +16,41 @@
 
   <body style="margin:0" id="body">
     <!--顶部-->
-    <div class="image" id="顶部">
-      <script>
-        //以夏季昼夜时间为标准的背景图变换脚本1
-        const hour = new Date().getHours();
-        const body = document.getElementById("body");
-        let bgmap1;
-        if (hour >= 6 && hour < 18) {
-          bgmap1 = { image: "图片/小院白天.png" };
-          body.style.color = "black";
-        } else {
-          bgmap1 = { image: "图片/小院黑夜.png" };
-          body.style.color = "grey";
-        }
-        const div1 = document.getElementById("顶部");
-        div1.style.background = `url(${bgmap1.image})`;
-      </script>
+    <div style="margin:0;height:220px;" id="顶部">
       <div style="margin-top: 0; text-align: center">
         <h3 style="margin: 0">大帅比的</h3>
         <p style="margin: 0">
-          个<a href="index.html"
-            ><img src="图片/Untitled 06-21-2025 09-35-46.png" class="logo" /></a
-          >人
+          个
+          <a href="index.html">
+            <img src="图片/Untitled 06-21-2025 09-35-46.png" class="logo">
+          </a>
+          人
         </p>
         <p style="margin:0">网站</p>
       </div>
     </div>
     <!--MainSection主要区域-->
-
     <div class="main" id="main">
-      <script>
-        //以夏季昼夜时间为标准的背景图变换脚本2
+      <script> //以夏季昼夜时间为标准的背景图变换
+        const hour=new Date().getHours();
+        const body=document.getElementById('body');
+        let bgmap1;
         let bgmap2;
         if (hour >= 6 && hour < 18) {
-          bgmap2 = { image: "图片/白天.png" };
+          bgmap1 =  "图片/小院白天.png";
+          bgmap2 =  "图片/白天.png";
+          body.style.color = "black";
         } else {
-          bgmap2 = { image: "图片/夜晚.png" };
+          bgmap1 = "图片/小院黑夜.png";
+          bgmap2 = "图片/夜晚.png" ;
+          body.style.color = "grey";
         }
+        const div1 = document.getElementById("顶部");
+        div1.style.background = `url(${bgmap1})`;
         const div2 = document.getElementById("main");
-        div2.style.background = `url(${bgmap2.image})`;
+        div2.style.background = `url(${bgmap2})`;
       </script>
-      <!--SectionZero区域0-->
+      <!--SectionZero区域0联系方式-->
       <nav style="height: 30px" id="联系方式">
         <a
           target="_blank"
@@ -89,28 +83,29 @@
             src="图片/0b10d584484d6b0a4b936e29dc1acae2.png"
         /></a>
       </nav>
-      <!--SectionOne区域1-->
-      <div class="container" id="卡片">
-        <!--1111111111111111111-->
-        <div class="box card-first">
+      <!--SectionOne区域1板块-->
+      <div class="container2" id="卡片">
+        
+        <div class="box">
           <div class="margin">
             <a href="键盘敲得.html">
               <img
-                src="图片/69d69a1aed759289ac81f01f2c1ddb1.jpg"
-                class="box-image"
-            /></a>
+                src="图片/69d69a1aed759289ac81f01f2c1ddb1.jpg"/>
+            </a>
           </div>
           <div class="box-under">
             <h3 style="margin:0">用键盘敲的</h3>
             <p>简介：用几百个汉字与标点符号+空格排列组合而成的。</p>
           </div>
-          <div style="padding: 5px 0px 0px 10px">冷知识：用冰块儿冷的。</div>
+          <div style="padding: 5px 0px 10px 10px">
+            冷知识：用冰块儿冷的。
+          </div>
         </div>
-        <!--22222222222222222-->
-        <div class="box card-first">
+        
+        <div class="box">
           <div style="margin:0">
             <a href="超超超有用的的一些东西.html">
-              <img src="图片/downloaded-image.png" class="box-image"
+              <img src="图片/downloaded-image.png"
             /></a>
           </div>
           <div class="box-under">
@@ -123,17 +118,68 @@
             冷知识：鱼一般是不骑自行车的。
           </div>
         </div>
-        <!--333333333333333-->
-        <div class="box card-first">
+
+        <div class="box">
+          <div style="margin:0">
+            <a href="超超超有用的的一些东西.html#凑数的">
+              <img src="无"
+            /></a>
+          </div>
+          <div class="box-under">
+            <h3 style="margin:0">凑数的</h3>
+            <p>
+              简介:凑数的
+            </p>
+          </div>
+          <div style="padding: 5px 0px 0px 10px">
+            冷知识:这真的是用来凑数的。
+          </div>
+        </div>
+
+        <div class="box">
+          <div style="margin:0">
+            <a href="超超超有用的的一些东西.html#凑数的">
+              <img src="无"
+            /></a>
+          </div>
+          <div class="box-under">
+            <h3 style="margin:0">凑数的</h3>
+            <p>
+              简介:凑数的
+            </p>
+          </div>
+          <div style="padding: 5px 0px 0px 10px">
+            冷知识:这真的是用来凑数的。
+          </div>
+        </div>
+
+        <div class="box">
+          <div style="margin:0">
+            <a href="超超超有用的的一些东西.html#凑数的">
+              <img src="无"
+            /></a>
+          </div>
+          <div class="box-under">
+            <h3 style="margin:0">凑数的</h3>
+            <p>
+              简介:凑数的
+            </p>
+          </div>
+          <div style="padding: 5px 0px 0px 10px">
+            冷知识:这真的是用来凑数的。
+          </div>
+        </div>
+        
+        <div class="box">
           <div style="margin:0">
             <a href="其他.html">
-              <img src="图片/省略号.png" class="box-image"
+              <img src="图片/省略号.png"
             /></a>
           </div>
           <div class="box-under">
             <h3 style="margin:0">其他</h3>
             <p>
-              简介:其他otherその他sonstigesautresПрочееΆλλαอื่นๆאחריםأخرى .
+              简介:其他otherその他sonstigesautresПрочее<br>Άλλαอื่นๆאחריםأخرى .
             </p>
           </div>
           <div style="padding: 5px 0px 0px 10px">
@@ -141,7 +187,7 @@
           </div>
         </div>
       </div>
-      <!--SectionTwo区域2-->
+      <!--SectionTwo区域2自我介绍-->
       <div>
         <h2>我是谁？</h2>
         <div class="container">
@@ -158,26 +204,21 @@
             </p>
           </div>
           <div class="WhoRight">
-            <video
-              width="100%"
-              height="100%"
-              poster="图片/猜猜我是谁.jpg"
-              controls
-            >
+            <video width="100%" height="100%" poster="图片/猜猜我是谁.jpg" controls>
               <source src="图片/猜猜我是谁.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
       </div>
-
-     <!--3333333333333333333333333倒计时-->
-
+     <!--SectionThree倒计时-->
       <div style="margin:0">
         <div id="倒计时"></div>
-        
+        <div id="card" style="display:none">
+          <a target="_blank" href="https://www.bilibili.com/video/BV1GJ411x7h7?t=5.1">点击有惊喜</a>
+        </div>
         <script>
           const gift = `<button type="button" onclick="
-                    const card = document.getElementById('');
+                    const card = document.getElementById('card');
                     if(card) {
                         card.style.display = 'block';
                         this.style.display = 'none';
@@ -205,10 +246,8 @@
             倒计时.innerHTML = `<h2>倒计时</h2>${countdown()}`;
           }, 1000);
         </script>
-      </div>
-      
-      <!--Sectionthree区域4-->
-      
+      </div> 
+      <!--Sectionthree区域4成就-->
       <div style="margin-top:20px" id="成就">
         <h2 style="margin:0">成就</h2>
         <p style="margin:0">网站成就，这应该是全世界独一份的了吧</p>
