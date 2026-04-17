@@ -32,7 +32,6 @@
 .body {
   margin: 20px 0 0px 10px;
   background-color: rgba(240, 240, 240);
-  min-width: 100vw;
 }
 
 .a:link {
