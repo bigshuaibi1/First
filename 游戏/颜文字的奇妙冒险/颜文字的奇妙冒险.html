@@ -203,13 +203,13 @@
 </head>
 <body class="screen">
    <div class="game">
-    <div class="主角"><span class="attackleft fight">刘硕洋</span>(￣▽￣)<span class="attackright fight">董政轩</span></div>
+    <div class="主角"><span class="attackleft fight">———</span>(￣▽￣)<span class="attackright fight">———</span></div>
     <!--左上角UI开始-->
     <div>
         <div class=" BlueBar"></div>
         <div class="HP"><span>♡</span><span>♡</span><span>♡</span><span>♡</span><span>♡</span></div>
-        <div class="left cd"><span class="cd-text">刘硕洋</span></div>
-        <div class="right cd"><span class="cd-text">董政轩</span></div>
+        <div class="left cd"><span class="cd-text">———</span></div>
+        <div class="right cd"><span class="cd-text">———</span></div>
     </div><!--左上角UI结束-->
     <!--右上角ui及其窗口开始-->
     <div class="背包 图标">背包</div>
@@ -285,34 +285,27 @@ const map = document.querySelector(".map")
 let T=0
 let L=0
 const key=new Set(); 
-let x0=0
-let y0=0
+let x0=5
+let y0=5
   function movechange(event){
     key.add(event.key.toLowerCase());
-    if(key.has("w")&&key.has("d")){
-        y0=5;  
-        x0=-5;  
-    }else if(key.has("w")&&key.has("a")){
-        y0=5;  
-        x0=5;  
+    if(key.has("w")&&key.has("d")){  
+        x0=-x0;  
     }else if(key.has("s")&&key.has("d")){
-        y0=-5;  
-        x0=-5; 
+        y0=-y0;  
+        x0=-x0; 
     }else if(key.has("s")&&key.has("a")){
-        y0=-5;  
-        x0=5; 
+        y0=-y0; 
     }else if(key.has("w") ){
-        y0=5;
         x0=0;  
      }else if(key.has("s")){
-        y0=-5;
+        y0=-y0;
         x0=0;       
      }else if(key.has("d")){
         y0=0;
-        x0=-5;
+        x0=-x0;
      }else if(key.has("a") ){
-        y0=0;
-        x0=5;  
+        y0=0;  
      }              
 }//本次移动的改变量
   function IfMove(){
@@ -342,13 +335,14 @@ let y0=0
        L=L+x0 
        map.style.top=`${T}px`
        map.style.left=`${L}px`
-       x0=0
-       y0=0
+       x0=5
+       y0=5
     }
 }
   document.addEventListener("keydown",move)
   document.addEventListener("keyup",function(){key.delete(event.key.toLowerCase())})
 //主角移动系统
+
 let HPN
 const HP=document.querySelector(".HP")
 function Restore(){
