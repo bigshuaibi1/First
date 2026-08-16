@@ -416,7 +416,8 @@
   color:rgba(160, 160, 160);
   font-size:15px;
 }
-/*键盘敲得*/
+
+/*--------------------键盘敲得--------------------*/
 
 .passage {
   border-bottom: 1px solid rgba(160, 160, 160);
@@ -443,6 +444,18 @@
     font-family: "STKaiti", "NSimSun";
     max-width: 600px;
     padding-left: 3em;
+}
+.poem-text {
+    color: #1a1a1a; 
+    font-family: "STSong", "宋体", "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 2.2;
+    letter-spacing: 1.2px;    
+    text-align: left;         
+    text-shadow: 0 0 4px #ffffff, 
+                 0 0 8px #ffffff, 
+                 0 0 12px rgba(255, 255, 255, 0.9);
 }
 /*超有用*/
 .solid {
